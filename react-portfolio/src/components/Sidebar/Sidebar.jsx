@@ -61,7 +61,7 @@ const Sidebar = ({ setActiveNav }) => {
       </div>
 
         {/* Action Buttons */}
-        <div className="action-buttons">
+        {/* <div className="action-buttons">
           <button className="action-btn primary-btn" onClick={handleDownloadCV}>
             <ion-icon name="download-outline"></ion-icon>
             <span>Download CV</span>
@@ -71,7 +71,7 @@ const Sidebar = ({ setActiveNav }) => {
             <ion-icon name="chatbubble-outline"></ion-icon>
             <span>Contact Me</span>
           </button>
-        </div>
+        </div> */}
     </aside>
   );
 };
