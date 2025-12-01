@@ -227,11 +227,11 @@
 
 @media (min-width: 1250px) {
   .action-buttons {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .action-btn {
-    width: 100%;
+    width: 40%;
   }
 
   .social-list {
