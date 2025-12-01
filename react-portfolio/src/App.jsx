@@ -7,23 +7,44 @@ import Portfolio from './components/Portfolio/Portfolio';
 import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import './App.css';
+import FloatingLines from './components/FloatingLines/FloatingLines';
+import './FloatingLinesBackground.css';
 
 function App() {
   const [activeNav, setActiveNav] = useState('About');
 
   return (
-    <main>
-      <Sidebar setActiveNav={setActiveNav} />
-      <div className="main-content">
-        <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
-
-        {activeNav === 'About' && <About />}
-        {activeNav === 'Resume' && <Resume />}
-        {activeNav === 'Portfolio' && <Portfolio />}
-        {activeNav === 'Blog' && <Blog />}
-        {activeNav === 'Contact' && <Contact />}
+    <>
+      <div
+        className="app-background"
+        aria-hidden="true"
+      >
+        <FloatingLines
+          enabledWaves={["top", "middle", "bottom"]}
+          lineCount={[10, 15, 20]}
+          lineDistance={[8, 6, 4]}
+          bendRadius={5.0}
+          bendStrength={-0.5}
+          interactive={true}
+          parallax={true}
+        />
       </div>
-    </main>
+
+      <div className="app-root">
+        <main>
+          <Sidebar setActiveNav={setActiveNav} />
+          <div className="main-content">
+            <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
+
+            {activeNav === 'About' && <About />}
+            {activeNav === 'Resume' && <Resume />}
+            {activeNav === 'Portfolio' && <Portfolio />}
+            {activeNav === 'Blog' && <Blog />}
+            {activeNav === 'Contact' && <Contact />}
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
 
