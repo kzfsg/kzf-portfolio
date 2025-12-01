@@ -13,7 +13,7 @@ function App() {
 
   return (
     <main>
-      <Sidebar />
+      <Sidebar setActiveNav={setActiveNav} />
       <div className="main-content">
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
 

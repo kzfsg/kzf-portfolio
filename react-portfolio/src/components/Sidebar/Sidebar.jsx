@@ -1,97 +1,86 @@
-import { useState } from 'react';
 import './Sidebar.css';
 
-const Sidebar = () => {
-  const [isActive, setIsActive] = useState(false);
+const Sidebar = ({ setActiveNav }) => {
+  // Work status can be: "available" or "employed"
+  const workStatus = "available"; // Change this to "employed" when needed
 
-  const toggleSidebar = () => {
-    setIsActive(!isActive);
+  const socials = [
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/yourprofile', icon: 'logo-linkedin' },
+    { name: 'GitHub', url: 'https://github.com/yourprofile', icon: 'logo-github' },
+    { name: 'Twitter', url: 'https://twitter.com/yourprofile', icon: 'logo-twitter' },
+    { name: 'Email', url: 'mailto:your@email.com', icon: 'mail-outline' }
+  ];
+
+  const handleContactClick = () => {
+    if (setActiveNav) {
+      setActiveNav('Contact');
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const handleDownloadCV = () => {
+    // This will be implemented later when you add your CV
+    // For now, it's a placeholder
+    console.log('Download CV clicked');
+    // Future implementation:
+    // window.open('/path-to-your-cv.pdf', '_blank');
   };
 
   return (
-    <aside className={`sidebar ${isActive ? 'active' : ''}`} data-sidebar>
+    <aside className="sidebar active" data-sidebar>
       <div className="sidebar-info">
+        {/* Avatar */}
         <figure className="avatar-box">
-          <img src="/assets/images/my-avatar.png" alt="Richard hanrick" width="80" />
+          <img src="/assets/images/my-avatar.png" alt="Kwok Zheng Feng" width="240" />
         </figure>
 
+        {/* Name and Work Status */}
         <div className="info-content">
-          <h1 className="name" title="Richard hanrick">Richard hanrick</h1>
-          <p className="title">Web developer</p>
+          <h1 className="name" title="Kwok Zheng Feng">Kwok Zheng Feng</h1>
+          <p className={`work-status ${workStatus}`}>
+            <span className="status-indicator"></span>
+            {workStatus === "available" ? "Available for work" : "Currently employed"}
+          </p>
         </div>
-
-        <button className="info_more-btn" data-sidebar-btn onClick={toggleSidebar}>
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
       </div>
 
       <div className="sidebar-info_more">
         <div className="separator"></div>
 
-        <ul className="contacts-list">
-          <li className="contact-item">
-            <div className="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Email</p>
-              <a href="mailto:richard@example.com" className="contact-link">richard@example.com</a>
-            </div>
-          </li>
-
-          <li className="contact-item">
-            <div className="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Phone</p>
-              <a href="tel:+12133522795" className="contact-link">+1 (213) 352-2795</a>
-            </div>
-          </li>
-
-          <li className="contact-item">
-            <div className="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Birthday</p>
-              <time dateTime="1982-06-23">June 23, 1982</time>
-            </div>
-          </li>
-
-          <li className="contact-item">
-            <div className="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Location</p>
-              <address>Sacramento, California, USA</address>
-            </div>
-          </li>
-        </ul>
+        {/* Socials and Links */}
+        <div className="social-section">
+          <h3 className="section-title">Connect</h3>
+          <ul className="social-list">
+            {socials.map((social, index) => (
+              <li className="social-item" key={index}>
+                <a
+                  href={social.url}
+                  className="social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={social.name}
+                >
+                  <ion-icon name={social.icon}></ion-icon>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="separator"></div>
 
-        <ul className="social-list">
-          <li className="social-item">
-            <a href="#" className="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
+        {/* Action Buttons */}
+        <div className="action-buttons">
+          <button className="action-btn primary-btn" onClick={handleDownloadCV}>
+            <ion-icon name="download-outline"></ion-icon>
+            <span>Download CV</span>
+          </button>
 
-          <li className="social-item">
-            <a href="#" className="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li className="social-item">
-            <a href="#" className="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-        </ul>
+          <button className="action-btn secondary-btn" onClick={handleContactClick}>
+            <ion-icon name="chatbubble-outline"></ion-icon>
+            <span>Contact Me</span>
+          </button>
+        </div>
       </div>
     </aside>
   );

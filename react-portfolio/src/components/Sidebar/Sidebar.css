@@ -1,1 +1,240 @@
-/* This file will be populated with sidebar-specific styles from the main CSS */
+/* Sidebar specific styles for the new design */
+
+/* Avatar rounded corners */
+.avatar-box {
+  border-radius: 10px;
+  overflow: hidden; /* Ensures the image doesn't overflow the rounded corners */
+  width: 225px; /* Set your desired size here */
+  height: 225px;
+  flex-shrink: 0; /* Prevents the box from shrinking */
+}
+
+.avatar-box img {
+  border-radius: 10px;
+  display: block;
+  width: 100% !important; /* !important overrides App.css media queries */
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the box without distortion */
+}
+
+/* Work Status Indicator */
+.work-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-400);
+  color: var(--light-gray);
+  background: var(--onyx);
+  width: max-content;
+  padding: 5px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--light-gray);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Available status - green indicator */
+.work-status.available .status-indicator {
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+/* Employed status - orange indicator */
+.work-status.employed .status-indicator {
+  background: var(--orange-yellow-crayola);
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Social Section */
+.social-section {
+  padding: 15px 0;
+}
+
+.section-title {
+  color: var(--white-2);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.social-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-item {
+  flex-shrink: 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--border-gradient-onyx);
+  border-radius: 12px;
+  color: var(--light-gray);
+  font-size: 18px;
+  transition: var(--transition-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: var(--bg-gradient-jet);
+  transition: var(--transition-1);
+  z-index: -1;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+
+.social-link:hover::before,
+.social-link:focus::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px 0;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  transition: var(--transition-1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn ion-icon {
+  font-size: 20px;
+}
+
+/* Primary Button - Download CV */
+.primary-btn {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+  border: 2px solid var(--orange-yellow-crayola);
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+  background: var(--orange-yellow-crayola);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-3);
+}
+
+/* Secondary Button - Contact Me */
+.secondary-btn {
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  border: 2px solid transparent;
+}
+
+.secondary-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--bg-gradient-jet);
+  transition: var(--transition-1);
+  z-index: -1;
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+.secondary-btn:hover::before,
+.secondary-btn:focus::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+/* Responsive adjustments */
+@media (min-width: 580px) {
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .action-btn {
+    padding: 14px 24px;
+    font-size: var(--fs-5);
+  }
+
+  .section-title {
+    font-size: var(--fs-5);
+  }
+}
+
+@media (min-width: 768px) {
+  .action-buttons {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .action-btn {
+    flex: 1;
+  }
+}
+
+@media (min-width: 1250px) {
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+
+  .social-list {
+    justify-content: center;
+  }
+}
