@@ -7,8 +7,6 @@ const Sidebar = ({ setActiveNav }) => {
   const socials = [
     { name: 'LinkedIn', url: 'https://linkedin.com/in/yourprofile', icon: 'logo-linkedin' },
     { name: 'GitHub', url: 'https://github.com/yourprofile', icon: 'logo-github' },
-    { name: 'Twitter', url: 'https://twitter.com/yourprofile', icon: 'logo-twitter' },
-    { name: 'Email', url: 'mailto:your@email.com', icon: 'mail-outline' }
   ];
 
   const handleContactClick = () => {
@@ -36,20 +34,13 @@ const Sidebar = ({ setActiveNav }) => {
 
         {/* Name and Work Status */}
         <div className="info-content">
-          <h1 className="name" title="Kwok Zheng Feng">Kwok Zheng Feng</h1>
           <p className={`work-status ${workStatus}`}>
             <span className="status-indicator"></span>
             {workStatus === "available" ? "Available for work" : "Currently employed"}
           </p>
-        </div>
-      </div>
-
-      <div className="sidebar-info_more">
-        <div className="separator"></div>
-
-        {/* Socials and Links */}
+          <h1 className="name" title="Kwok Zheng Feng">Kwok Zheng Feng</h1>
+          {/* Socials and Links */}
         <div className="social-section">
-          <h3 className="section-title">Connect</h3>
           <ul className="social-list">
             {socials.map((social, index) => (
               <li className="social-item" key={index}>
@@ -66,8 +57,8 @@ const Sidebar = ({ setActiveNav }) => {
             ))}
           </ul>
         </div>
-
-        <div className="separator"></div>
+        </div>
+      </div>
 
         {/* Action Buttons */}
         <div className="action-buttons">
@@ -81,7 +72,6 @@ const Sidebar = ({ setActiveNav }) => {
             <span>Contact Me</span>
           </button>
         </div>
-      </div>
     </aside>
   );
 };
