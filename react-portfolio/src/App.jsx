@@ -6,6 +6,7 @@ import Resume from './components/Resume/Resume';
 import Portfolio from './components/Portfolio/Portfolio';
 import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
+import FloatingLines from './components/FloatingLines/FloatingLines';
 import './App.css';
 
 function App() {
@@ -13,6 +14,28 @@ function App() {
 
   return (
     <main>
+      {/* Animated background */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
+        opacity: 0.3
+      }}>
+        <FloatingLines
+          enabledWaves={['top', 'middle', 'bottom']}
+          lineCount={[10, 15, 20]}
+          lineDistance={[8, 6, 4]}
+          bendRadius={5.0}
+          bendStrength={-0.5}
+          interactive={true}
+          parallax={true}
+          mixBlendMode="screen"
+        />
+      </div>
+
       <Sidebar setActiveNav={setActiveNav} />
       <div className="main-content">
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
