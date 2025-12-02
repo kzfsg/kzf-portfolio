@@ -154,19 +154,19 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--glass-border) !important;
   box-shadow: var(--glass-shadow) !important;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .sidebar.glass-sidebar::before {
   display: none !important;
 }
 
-/* Main content area glass effect */
+/* Main content area - no glass, just container */
 .main-content.glass-content {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border) !important;
-  box-shadow: var(--glass-shadow) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .main-content.glass-content::before {
@@ -257,8 +257,13 @@
 }
 
 /* Article containers glass effect */
+.glass-content article,
 article.glass-article {
-  background: transparent !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
 }
 
 /* Contact form glass effect */
