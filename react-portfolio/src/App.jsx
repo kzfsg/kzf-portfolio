@@ -27,8 +27,8 @@ function App() {
       }}>
         <FloatingLines
           enabledWaves={['top', 'middle', 'bottom']}
-          lineCount={[10, 15, 20]}
-          lineDistance={[8, 6, 4]}
+          lineCount={[10, 5, 10]}
+          lineDistance={[8, 20, 4]}
           bendRadius={5.0}
           bendStrength={-0.5}
           interactive={true}
