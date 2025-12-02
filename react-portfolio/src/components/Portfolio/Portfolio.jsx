@@ -47,7 +47,7 @@ const Portfolio = () => {
           {filterOptions.map((filter) => (
             <li className="filter-item" key={filter}>
               <button
-                className={activeFilter === filter ? 'active' : ''}
+                className={`glass-filter-btn ${activeFilter === filter ? 'active' : ''}`}
                 data-filter-btn
                 onClick={() => handleFilterClick(filter)}
               >
@@ -58,7 +58,7 @@ const Portfolio = () => {
         </ul>
 
         <div className="filter-select-box">
-          <button className={`filter-select ${isSelectActive ? 'active' : ''}`} data-select onClick={handleSelectClick}>
+          <button className={`filter-select glass-filter ${isSelectActive ? 'active' : ''}`} data-select onClick={handleSelectClick}>
             <div className="select-value" data-select-value>{activeFilter}</div>
             <div className="select-icon">
               <ion-icon name="chevron-down"></ion-icon>

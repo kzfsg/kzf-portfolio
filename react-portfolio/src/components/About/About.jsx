@@ -95,7 +95,7 @@ const About = () => {
 
         <ul className="service-list">
           {services.map((service, index) => (
-            <li className="service-item" key={index}>
+            <li className="service-item glass-card" key={index}>
               <div className="service-icon-box">
                 <img src={service.icon} alt={`${service.title} icon`} width="40" />
               </div>
@@ -115,7 +115,7 @@ const About = () => {
         <ul className="testimonials-list has-scrollbar">
           {testimonials.map((testimonial, index) => (
             <li className="testimonials-item" key={index}>
-              <div className="content-card" data-testimonials-item onClick={() => openModal(testimonial)}>
+              <div className="content-card glass-card" data-testimonials-item onClick={() => openModal(testimonial)}>
                 <figure className="testimonials-avatar-box">
                   <img src={testimonial.avatar} alt={testimonial.name} width="60" data-testimonials-avatar />
                 </figure>
@@ -135,7 +135,7 @@ const About = () => {
         <div className="modal-container active" data-modal-container>
           <div className="overlay" data-overlay onClick={closeModal}></div>
 
-          <section className="testimonials-modal">
+          <section className="testimonials-modal glass-modal">
             <button className="modal-close-btn" data-modal-close-btn onClick={closeModal}>
               <ion-icon name="close-outline"></ion-icon>
             </button>

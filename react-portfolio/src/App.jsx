@@ -8,6 +8,7 @@ import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import FloatingLines from './components/FloatingLines/FloatingLines';
 import './App.css';
+import './glassmorphism.css';
 
 function App() {
   const [activeNav, setActiveNav] = useState('About');
@@ -37,7 +38,7 @@ function App() {
       </div>
 
       <Sidebar setActiveNav={setActiveNav} />
-      <div className="main-content">
+      <div className="main-content glass-content">
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
 
         {activeNav === 'About' && <About />}

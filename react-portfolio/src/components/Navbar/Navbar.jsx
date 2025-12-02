@@ -9,7 +9,7 @@ const Navbar = ({ activeNav, setActiveNav }) => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar glass-navbar">
       <ul className="navbar-list">
         {navItems.map((item) => (
           <li className="navbar-item" key={item}>

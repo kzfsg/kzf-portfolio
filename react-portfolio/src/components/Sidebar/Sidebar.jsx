@@ -25,11 +25,11 @@ const Sidebar = ({ setActiveNav }) => {
   };
 
   return (
-    <aside className="sidebar active" data-sidebar>
+    <aside className="sidebar glass-sidebar active" data-sidebar>
       <div className="sidebar-info">
         {/* Avatar */}
         <figure className="avatar-box">
-          <img src="/assets/images/my-avatar.png" alt="Kwok Zheng Feng" width="240" />
+          <img src="/assets/images/my-avatar.png" alt="Zheng Feng" width="240" />
         </figure>
 
         {/* Name and Work Status */}
@@ -38,7 +38,7 @@ const Sidebar = ({ setActiveNav }) => {
             <span className="status-indicator"></span>
             {workStatus === "available" ? "Available for work" : "Currently employed"}
           </p>
-          <h1 className="name" title="Kwok Zheng Feng">Kwok Zheng Feng</h1>
+          <h1 className="name" title="Kwok Zheng Feng">Zheng Feng</h1>
           {/* Socials and Links */}
         <div className="social-section">
           <ul className="social-list">

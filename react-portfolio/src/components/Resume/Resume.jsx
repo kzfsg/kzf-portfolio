@@ -60,7 +60,7 @@ const Resume = () => {
 
         <ol className="timeline-list">
           {education.map((item, index) => (
-            <li className="timeline-item" key={index}>
+            <li className="timeline-item glass-card" key={index}>
               <h4 className="h4 timeline-item-title">{item.title}</h4>
               <span>{item.period}</span>
               <p className="timeline-text">{item.description}</p>
@@ -79,7 +79,7 @@ const Resume = () => {
 
         <ol className="timeline-list">
           {experience.map((item, index) => (
-            <li className="timeline-item" key={index}>
+            <li className="timeline-item glass-card" key={index}>
               <h4 className="h4 timeline-item-title">{item.title}</h4>
               <span>{item.period}</span>
               <p className="timeline-text">{item.description}</p>
@@ -91,7 +91,7 @@ const Resume = () => {
       <section className="skill">
         <h3 className="h3 skills-title">My skills</h3>
 
-        <ul className="skills-list content-card">
+        <ul className="skills-list content-card glass-card">
           {skills.map((skill, index) => (
             <li className="skills-item" key={index}>
               <div className="title-wrapper">
