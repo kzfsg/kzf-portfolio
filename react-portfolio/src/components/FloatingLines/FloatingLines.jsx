@@ -73,7 +73,7 @@ vec3 background_color(vec2 uv) {
 
   col += mix(BLUE, BLACK, smoothstep(0.0, 1.0, abs(m)));
   col += mix(PINK, BLACK, smoothstep(0.0, 1.0, abs(m - 0.8)));
-  return col * 0.5;
+  return col *0.5; // Removed * 0.5 darkening effect
 }
 
 vec3 getLineColor(float t, vec3 baseColor) {
